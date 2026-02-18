@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BSJKS Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Title Glow */
+h1 {
+    text-align: center;
+    font-size: 38px;
+    margin-top: 30px;
+    text-shadow: 0 0 20px #00f2ff, 0 0 40px #0077ff;
+}
+
+/* Glass Cards */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    padding: 25px 60px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    transition: 0.4s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.8);
+}
+
+.card h2 {
+    margin: 0;
+    font-weight: 500;
+}
+
+.card p {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Chart Section */
+.chart-container {
+    width: 90%;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(0,255,255,0.2);
+}
+
+canvas {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>ऑफलाइन बनाम ऑनलाइन शिकायत तुलना</h1>
+
+<div class="cards">
+    <div class="card">
+        <h2>कुल ऑफलाइन</h2>
+        <p>12,449</p>
+    </div>
+
+    <div class="card">
+        <h2>कुल ऑनलाइन</h2>
+        <p>11,950</p>
+    </div>
+</div>
+
+<div class="chart-container">
+    <canvas id="complaintChart"></canvas>
+</div>
+
+<script>
+
+const ctx = document.getElementById('complaintChart').getContext('2d');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["पटना","लखीसराय","मुजफ्फरपुर","सहरसा","पूर्णिया","भागलपुर","गया","दरभंगा"],
+        datasets: [
+            {
+                label: "ऑफलाइन",
+                data: [240, 728, 586, 1200, 2244, 2751, 3000, 3700],
+                backgroundColor: 'rgba(0,255,200,0.8)',
+                borderRadius: 8
+            },
+            {
+                label: "ऑनलाइन",
+                data: [6, 0, 35, 442, 1355, 3, 3999, 1179],
+                backgroundColor: 'rgba(255,99,132,0.8)',
+                borderRadius: 8
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        animation: {
+            duration: 2000
+        },
+        plugins: {
+            legend: {
+                labels: { color: "white" }
+            }
+        },
+        scales: {
+            x: {
+                ticks: { color: "white" }
+            },
+            y: {
+                ticks: { color: "white" },
+                grid: { color: "rgba(255,255,255,0.1)" }
+            }
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>
