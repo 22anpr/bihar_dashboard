@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+
+<title>कैथी लिपि विशेषज्ञ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Noto Serif Devanagari', serif;
+    background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #1b5e20;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.info {
+    margin-top: 8px;
+}
+
+.call-btn {
+    margin-top: 12px;
+    display: inline-block;
+    padding: 8px 12px;
+    background: #2e7d32;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.call-btn:hover {
+    background: #1b5e20;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>कैथी लिपि विशेषज्ञ (जिला वार)</h1>
+
+<div class="grid">
+
+<!-- 1 -->
+<div class="card"><div class="name">नितीश कुमार</div><div class="info">📍 कटिहार</div><div class="info">📞 9128847922</div><a class="call-btn" href="tel:9128847922">Call</a></div>
+
+<!-- 2 -->
+<div class="card"><div class="name">रवि कुमार</div><div class="info">📍 नालन्दा, शेखपुरा</div><div class="info">📞 8789761229</div><a class="call-btn" href="tel:8789761229">Call</a></div>
+
+<!-- 3 -->
+<div class="card"><div class="name">दिव्यांशु कुमार</div><div class="info">📍 मुंगेर, लखीसराय</div><div class="info">📞 6203213847</div><a class="call-btn" href="tel:6203213847">Call</a></div>
+
+<!-- 4 -->
+<div class="card"><div class="name">रजनी कुमार वर्मा</div><div class="info">📍 शिवहर, सीतामढी</div><div class="info">📞 9304226875</div><a class="call-btn" href="tel:9304226875">Call</a></div>
+
+<!-- 5 -->
+<div class="card"><div class="name">प्रेम प्रकाश दुबे</div><div class="info">📍 अरवल, जहानाबाद</div><div class="info">📞 8340521172</div><a class="call-btn" href="tel:8340521172">Call</a></div>
+
+<!-- 6 -->
+<div class="card"><div class="name">रेवती रमण</div><div class="info">📍 पश्चिमी चंपारण</div><div class="info">📞 9199095392</div><a class="call-btn" href="tel:9199095392">Call</a></div>
+
+<!-- 7 -->
+<div class="card"><div class="name">आलोक कुमार</div><div class="info">📍 मुख्यालय</div><div class="info">📞 7482046177</div><a class="call-btn" href="tel:7482046177">Call</a></div>
+
+<!-- 8 -->
+<div class="card"><div class="name">सुबोध मिश्रा</div><div class="info">📍 सुपौल</div><div class="info">📞 9472578694</div><a class="call-btn" href="tel:9472578694">Call</a></div>
+
+<!-- 9 -->
+<div class="card"><div class="name">मो० दानिश आलम</div><div class="info">📍 सहरसा, मधेपुरा</div><div class="info">📞 7903785773</div><a class="call-btn" href="tel:7903785773">Call</a></div>
+
+<!-- 10 -->
+<div class="card"><div class="name">पोरष मंडल</div><div class="info">📍 भागलपुर, बाका</div><div class="info">📞 9430611682</div><a class="call-btn" href="tel:9430611682">Call</a></div>
+
+<!-- 11 -->
+<div class="card"><div class="name">हिना</div><div class="info">📍 मुख्यालय</div><div class="info">📞 9718323274</div><a class="call-btn" href="tel:9718323274">Call</a></div>
+
+<!-- 12 -->
+<div class="card"><div class="name">मो० शराफत अली</div><div class="info">📍 बेगूसराय, खगडिया</div><div class="info">📞 7488757663</div><a class="call-btn" href="tel:7488757663">Call</a></div>
+
+<!-- 13 -->
+<div class="card"><div class="name">जनार्दन सिंह</div><div class="info">📍 वैशाली</div><div class="info">📞 9199693093</div><a class="call-btn" href="tel:9199693093">Call</a></div>
+
+<!-- 14 -->
+<div class="card"><div class="name">जितेन्द्र कुमार सिंह</div><div class="info">📍 सिवान</div><div class="info">📞 9801549767</div><a class="call-btn" href="tel:9801549767">Call</a></div>
+
+<!-- 15 -->
+<div class="card"><div class="name">अवधेश कुमार</div><div class="info">📍 दरभंगा</div><div class="info">📞 9955255770</div><a class="call-btn" href="tel:9955255770">Call</a></div>
+
+<!-- 16 -->
+<div class="card"><div class="name">सतेन्द्र साह</div><div class="info">📍 आरा</div><div class="info">📞 9801210552</div><a class="call-btn" href="tel:9801210552">Call</a></div>
+
+<!-- 17 -->
+<div class="card"><div class="name">मनी साव</div><div class="info">📍 जमुई, नवादा</div><div class="info">📞 9572853403</div><a class="call-btn" href="tel:9572853403">Call</a></div>
+
+<!-- 18 -->
+<div class="card"><div class="name">बजरंगी कुमार</div><div class="info">📍 औरंगाबाद, गयाजी</div><div class="info">📞 7654951979</div><a class="call-btn" href="tel:7654951979">Call</a></div>
+
+<!-- 19 -->
+<div class="card"><div class="name">कुमारी प्रिया सिंह</div><div class="info">📍 पटना</div><div class="info">📞 8002246319</div><a class="call-btn" href="tel:8002246319">Call</a></div>
+
+<!-- 20 -->
+<div class="card"><div class="name">मो० राजिद आलम</div><div class="info">📍 पूर्णियाँ, किशनगंज</div><div class="info">📞 9523511753</div><a class="call-btn" href="tel:9523511753">Call</a></div>
+
+<!-- 21 -->
+<div class="card"><div class="name">बैद्यनाथ यादव</div><div class="info">📍 मधुबनी</div><div class="info">📞 8340241432</div><a class="call-btn" href="tel:8340241432">Call</a></div>
+
+<!-- 22 -->
+<div class="card"><div class="name">जगत नारायण गिरी</div><div class="info">📍 रोहतास</div><div class="info">📞 8340287815</div><a class="call-btn" href="tel:8340287815">Call</a></div>
+
+<!-- 23 -->
+<div class="card"><div class="name">संजय कुमार</div><div class="info">📍 समस्तीपुर</div><div class="info">📞 9867531631</div><a class="call-btn" href="tel:9867531631">Call</a></div>
+
+<!-- 24 -->
+<div class="card"><div class="name">विजय कुमार</div><div class="info">📍 मुजफ्फरपुर</div><div class="info">📞 8986255368</div><a class="call-btn" href="tel:8986255368">Call</a></div>
+
+<!-- 25 -->
+<div class="card"><div class="name">कन्हैया कुमार झा</div><div class="info">📍 अररिया</div><div class="info">📞 7303933367</div><a class="call-btn" href="tel:7303933367">Call</a></div>
+
+<!-- 26 -->
+<div class="card"><div class="name">धीरज कुमार सिंह</div><div class="info">📍 गोपालगंज</div><div class="info">📞 8299479001</div><a class="call-btn" href="tel:8299479001">Call</a></div>
+
+<!-- 27 -->
+<div class="card"><div class="name">संजीव कुमार सिंह</div><div class="info">📍 कैमुर, बक्सर</div><div class="info">📞 8578900403</div><a class="call-btn" href="tel:8578900403">Call</a></div>
+
+<!-- 28 -->
+<div class="card"><div class="name">प्रमोद कुमार</div><div class="info">📍 पूर्वी चम्पारण</div><div class="info">📞 8084232600</div><a class="call-btn" href="tel:8084232600">Call</a></div>
+
+<!-- 29 -->
+<div class="card"><div class="name">मो० वकार अहमद</div><div class="info">📍 सारण</div><div class="info">📞 7856853190</div><a class="call-btn" href="tel:7856853190">Call</a></div>
+
+</div>
+
+</body>
+</html>
