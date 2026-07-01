@@ -1,4 +1,39 @@
-                youtubeId: "5c63rhHxlu", audience: ["DEO", "Citizen"], badge: "Tech"
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>विभागीय प्रशिक्षण एवं संदर्भ पोर्टल | राजस्व एवं भूमि सुधार विभाग, बिहार सरकार</title>
+    <style>
+        /* Classic Government Elite Palette & Typography */
+        :root {
+            --primary: #0a2540; 
+            --primary-light: #1e3a5f;
+            --accent: #b91c1c; 
+            --accent-hover: #991b1b;
+            --gold: #d4af37; 
+            --bg-main: #f1f5f9;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border: #cbd5e1;
+            --shadow: 0 4px 10px rgb(10 37 64 / 0.08);
+            --radius: 8px;
+            --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --primary: #f8fafc;
+            --primary-light: #cbd5e1;
+            --accent: #ef4444;
+            --accent-hover: #f87171;
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --shadow: 0 4px 12px rgb(0 0 0 / 0.5);
+        }
 
         body.trainer-mode { font-size: 1.25rem; }
         body.trainer-mode .video-grid { grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)) !important; gap: 2rem; }
@@ -35,6 +70,237 @@
             height: calc(100vh - 200px); overflow-y: auto;
             background: var(--bg-card); border-radius: var(--radius); padding: 1.25rem;
             box-shadow: var(--shadow); border: 1px solid var(--border);
+        }
+        .nav-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #0a2540; margin-bottom: 1rem; font-weight: 700; border-bottom: 2px solid var(--gold); padding-bottom: 4px; }
+        .nav-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+        .nav-item {
+            padding: 0.8rem 0.9rem; border-radius: 6px; font-weight: 600; font-size: 0.92rem;
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-main);
+            border: 1px solid transparent; background: #f8fafc;
+        }
+        .nav-item:hover { background-color: #e2e8f0; border-color: var(--border); }
+        .nav-item.active { background-color: #0a2540; color: #ffffff; border-color: #0a2540; }
+        .nav-item .badge-count { background: rgba(0,0,0,0.06); font-size: 0.75rem; padding: 0.15rem 0.4rem; border-radius: 10px; font-weight: 700; color: #0a2540; }
+        .nav-item.active .badge-count { background: var(--gold); color: #0a2540; }
+
+        .content-area { flex-grow: 1; display: flex; flex-direction: column; gap: 2rem; }
+        
+        .search-wrapper {
+            background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius);
+            box-shadow: var(--shadow); border: 1px solid var(--border); display: flex; gap: 1rem; align-items: center;
+        }
+        .search-input { flex-grow: 1; padding: 0.8rem 1.25rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-main); font-size: 1rem; }
+        .search-input:focus { outline: 2px solid #0a2540; background: var(--bg-card); }
+
+        .module-section { background: var(--bg-card); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow); border: 1px solid var(--border); }
+        .module-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); padding-bottom: 0.6rem; margin-bottom: 1.5rem; }
+        .module-header h3 { font-size: 1.3rem; font-weight: 700; color: #0a2540; display: flex; align-items: center; gap: 0.5rem; }
+        [data-theme="dark"] .module-header h3 { color: #ffffff; }
+        
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.75rem; }
+        .video-card { background: var(--bg-main); border-radius: 6px; border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; position: relative; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        
+        .thumbnail-container { width: 100%; aspect-ratio: 16 / 9; background: #000; position: relative; cursor: pointer; }
+        .thumbnail-container img { width: 100%; height: 100%; object-fit: cover; }
+        .play-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 37, 64, 0.5); display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.2s ease; }
+        .thumbnail-container:hover .play-overlay { opacity: 1; }
+        .play-icon { width: 52px; height: 52px; background: var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 1.4rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 2px solid white; }
+
+        .card-details { padding: 1.25rem; display: flex; flex-direction: column; flex-grow: 1; gap: 0.6rem; }
+        .card-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 2px; }
+        
+        .badge { font-size: 0.68rem; padding: 0.2rem 0.55rem; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+        .badge-act { background: #1e3a5f; color: white; border: 1px solid var(--gold); }
+        .badge-rule { background: #0369a1; color: white; }
+        .badge-survey { background: #0f766e; color: white; }
+        .badge-tech { background: #7c3aed; color: white; }
+        .badge-mutation { background: #b91c1c; color: white; }
+        .badge-archived { background: #64748b; color: white; }
+
+        .audience-tag { font-size: 0.72rem; background: #e2e8f0; color: #0f172a; padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 700; border: 1px solid var(--border); }
+
+        .video-card h4 { font-size: 1.05rem; font-weight: 700; line-height: 1.4; color: #0a2540; }
+        [data-theme="dark"] .video-card h4 { color: #ffffff; }
+        .video-card p { font-size: 0.88rem; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.45; }
+        .video-meta { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-top: auto; padding-top: 0.6rem; border-top: 1px dashed var(--border); display: flex; justify-content: space-between; }
+
+        .btn-ui { padding: 0.6rem 1.2rem; border-radius: 4px; font-weight: 600; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; text-transform: uppercase; }
+        .btn-primary { background-color: #0a2540; color: white; border: 1px solid var(--gold); }
+        .btn-primary:hover { background-color: #1e3a5f; }
+        .btn-secondary { background-color: #334155; color: white; }
+        .btn-outline { background-color: transparent; border: 1px solid #0a2540; color: #0a2540; }
+        .btn-outline:hover { background-color: #0a2540; color: white; }
+
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 37, 64, 0.9); backdrop-filter: blur(8px); z-index: 1000; display: none; justify-content: center; align-items: center; padding: 2rem; }
+        .modal-frame { background: #000000; width: 100%; max-width: 1100px; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; position: relative; border: 3px solid var(--gold); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
+        .modal-close { position: absolute; top: -45px; right: 0; color: white; font-size: 1.4rem; font-weight: 700; background: transparent; border: none; cursor: pointer; }
+
+        @media(max-width: 1150px) { .main-container { flex-direction: column; } aside { width: 100%; height: auto; position: static; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-title-area">
+            <svg class="gov-emblem" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-width="4"/>
+                <path d="M50,18 L54,36 L73,36 L58,47 L63,66 L50,54 L37,66 L42,47 L27,36 L46,36 Z" fill="#fff"/>
+                <text x="50" y="86" text-anchor="middle" fill="#fff" font-size="7.5" font-weight="bold">BIHAR GOVT</text>
+            </svg>
+            <div class="header-text">
+                <h1>राजस्व एवं भूमि सुधार विभाग</h1>
+                <p>बिहार सरकार • आधिकारिक प्रशिक्षण, अधिनियम एवं कार्यप्रणाली संदर्भ पोर्टल</p>
+            </div>
+        </div>
+        <div class="header-controls">
+            <button class="btn-ui btn-secondary" id="trainerToggleBtn" onclick="toggleTrainerMode()">👨‍🏫 Projector Mode: बंद</button>
+            <button class="btn-ui btn-outline" style="color:white; border-color:white;" onclick="toggleTheme()">🌓 थीम बदलें</button>
+        </div>
+    </header>
+
+    <div class="portal-bar">
+        <a href="https://dlrs.bihar.gov.in" target="_blank" class="portal-link">🌐 DLRS पोर्टल</a>
+        <a href="https://biharbhumi.bihar.gov.in" target="_blank" class="portal-link">🗺️ बिहार भूमि पोर्टल</a>
+        <a href="https://rcms.bihar.gov.in" target="_blank" class="portal-link">⚖️ RCMS कोर्ट लिंक</a>
+        <a href="https://bhuabhilekh.bihar.gov.in" target="_blank" class="portal-link">🗂️ भू-अभिलेख सर्वर</a>
+    </div>
+
+    <div class="main-container">
+        <aside>
+            <div class="nav-title">प्रशिक्षण अध्याय (Modules)</div>
+            <nav><ul class="nav-list" id="moduleNavList"></ul></nav>
+        </aside>
+
+        <main class="content-area">
+            <div class="search-wrapper">
+                <input type="text" id="dashboardSearch" class="search-input" placeholder="🔍 अधिनियम, कीवर्ड या पद द्वारा खोजें (जैसे: Kashtkari, BLDRA, Parimarjan Plus, FIFO, Amin, CO)..." oninput="executeSearch()">
+                <button class="btn-ui btn-outline" onclick="clearSearch()">फ़िल्टर हटाएं</button>
+            </div>
+            <div id="dynamicModulesContainer"></div>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="videoModal" onclick="closeModalPlayer()">
+        <div class="modal-frame" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModalPlayer()">✕ बंद करें</button>
+            <iframe id="modalIframe" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Restructured Dataset in exact incremental ascending order format
+        const videoRegistry = [
+            // MODULE 1: Substantive Acts & Land Revenue Laws
+            {
+                module: "01. महत्वपूर्ण अधिनियम (Land Acts)",
+                title: "1.01 बिहार काश्तकारी अधिनियम 1885 (Bihar Tenancy Act)",
+                description: "बिहार में काश्तकारों (Tenants) के वर्गीकरण, उनके अधिकारों और कानूनी दावों को विनियमित करने वाले ऐतिहासिक BT Act 1885 का विस्तृत व्याख्यान।",
+                youtubeId: "01PLY0gH1Y", audience: ["CO", "RO", "DCLR", "Kanoongo"], badge: "Act"
+            },
+            {
+                module: "01. महत्वपूर्ण अधिनियम (Land Acts)",
+                title: "1.02 बिहार भूमि सुधार अधिनियम 1950 (Bihar Land Reforms Act)",
+                description: "जमींदारी उन्मूलन, राज्य में भूमि निहित (Vesting) करने के मापदंडों और उसके बाद निरंतर रजिस्टर-II अपडेट करने की व्यापक कानूनी व्याख्या।",
+                youtubeId: "0spkhyGnSYM", audience: ["CO", "RO", "DCLR", "Settlement Officer"], badge: "Act"
+            },
+            {
+                module: "01. महत्वपूर्ण अधिनियम (Land Acts)",
+                title: "1.03 बिहार भूमि विवाद निराकरण अधिनियम (BLDRA) 2009",
+                description: "भूमि विवादों को कम करने की प्रक्रिया, सक्षम राजस्व अधिकारियों के अधिकार क्षेत्र (Jurisdiction) की सीमाएं और प्रवर्तन शक्तियों की विस्तृत मार्गदर्शिका।",
+                youtubeId: "1f2du5YGzNo", audience: ["CO", "DCLR", "ADM"], badge: "Act"
+            },
+            {
+                module: "01. महत्वपूर्ण अधिनियम (Land Acts)",
+                title: "1.04 बिहार भूमि ट्रिब्यूनल अधिनियम (Bihar Land Tribunal Act) 2009",
+                description: "सक्षम प्राधिकारी के क्षेत्राधिकार का विश्लेषण, अंचल कार्यालय के आदेशों के विरुद्ध कानूनी अपील दायर करने और अपीलीय प्रतिनिधित्व के नियम।",
+                youtubeId: "mhcquqbtiQU", audience: ["DCLR", "ADM", "CO"], badge: "Act"
+            },
+            {
+                module: "01. महत्वपूर्ण अधिनियम (Land Acts)",
+                title: "1.05 BPPHT Act 1947 (बिहार विशेषाधिकार प्राप्त व्यक्ति गृह-स्थल काश्तकारी अधिनियम)",
+                description: "कमजोर वर्गों के लिए आवास स्थल सुरक्षा और कानूनी रूप से वैध बंदोबस्ती परवाना (Settlement Parwana) सुरक्षित करने की प्रक्रिया।",
+                youtubeId: "8FMoiyjgkok", audience: ["CO", "RO", "RK"], badge: "Act"
+            },
+            {
+                module: "01. महत्वपूर्ण अधिनियम (Land Acts)",
+                title: "1.06 PDR Act (लोक मांग वसूली अधिनियम): Certificate Officers की भूमिका",
+                description: "Public Demands Recovery Act (PDR) के तहत सरकारी बकाया राशि की वसूली के लिए निर्दिष्ट अधिकारियों की वैधानिक जिम्मेदारियों का विवरण।",
+                youtubeId: "9U-vYxEuu-0", audience: ["CO", "ADM", "DCLR"], badge: "Act"
+            },
+            {
+                module: "01. महत्वपूर्ण अधिनियम (Land Acts)",
+                title: "1.07 भूमि के प्रकारों का वर्गीकरण: गैरमजरूआ आम, खास, कैसरे-हिंद और खासमाहाल",
+                description: "सार्वजनिक उपयोग की भूमि, सरकारी संपत्तियों और आम रैयती अधिकारों के बीच कानूनी अंतर एवं राजस्व रिकॉर्ड में उनकी ट्रैकिंग।",
+                youtubeId: "zbEdAQVgJT", audience: ["CO", "RO", "RK", "Amin"], badge: "Act"
+            },
+
+            // MODULE 2: Departmental Rules & Codes
+            {
+                module: "02. विभागीय नियमावली एवं कोड",
+                title: "2.01 बिहार दाखिल-खारिज अधिनियम 2011 (Bihar Mutation Act)",
+                description: "दाखिल-खारिज की वैधानिक प्रक्रियाओं, समय-सीमा (Timelines) के अनुपालन के निर्देशों और कानूनी रूप से आवश्यक आम सूचना नियमों की व्याख्या।",
+                youtubeId: "Ue7vsPpjCHI", audience: ["CO", "RO", "CI", "RK"], badge: "Rule"
+            },
+            {
+                module: "02. विभागीय नियमावली एवं कोड",
+                title: "2.02 बिहार दाखिल-खारिज नियमावली 2012 (Bihar Mutation Rule)",
+                description: "विभागीय नियमों के अनुरूप फील्ड में म्यूटेशन केस के निष्पादन और आदेश पत्र (Order Sheet) तैयार करने की व्यावहारिक नियमावली।",
+                youtubeId: "KRMHyjnrkpg", audience: ["CO", "RO", "CI"], badge: "Rule"
+            },
+            {
+                module: "02. विभागीय नियमावली एवं कोड",
+                title: "2.03 अंचल कार्यालय (Circle Office) में संधारित की जाने वाली महत्वपूर्ण पंजीयाँ",
+                description: "रजिस्टर II (Register II), अल्फाबेटिकल रजिस्टर और निरंतर म्यूटेशन ट्रैकिंग रिकॉर्ड्स को व्यवस्थित रखने का संस्थागत प्रशिक्षण।",
+                youtubeId: "bLtAQdR4GV", audience: ["CO", "RO", "RK", "DEO"], badge: "Rule"
+            },
+            {
+                module: "02. विभागीय नियमावली एवं कोड",
+                title: "2.04 राजस्व प्रशासन में प्रयुक्त होने वाली महत्वपूर्ण शब्दावली",
+                description: "राजस्व रिकॉर्ड और पुराने दस्तावेजों में उपयोग किए जाने वाले कठिन उर्दू, फारसी और पारंपरिक तकनीकी शब्दों का हिंदी अनुवाद और व्याख्या।",
+                youtubeId: "XTEnOBhtPQI", audience: ["RO", "RK", "Amin", "DEO"], badge: "Rule"
+            },
+
+            // MODULE 3: Parimarjan Plus Operations
+            {
+                module: "03. परिमार्जन प्लस (Parimarjan Plus)",
+                title: "3.01 Parimarjan Plus Portal: अंचल स्तर पर आवेदनों का निष्पादन और निपटारा",
+                description: "सर्किल अधिकारियों (CO) के लिए नए पोर्टल फ्रेमवर्क के माध्यम से लाइव जमाबंदी रिकॉर्ड में डिजिटल सुधार (Correction) दावों को संसाधित करने का आधिकारिक प्रोटोकॉल।",
+                youtubeId: "fDRySix4DzY", audience: ["CO", "RO", "CI"], badge: "Mutation"
+            },
+            {
+                module: "03. परिमार्jan Plus (Parimarjan Plus)",
+                title: "3.02 Parimarjan Plus: नागरिकों द्वारा ऑनलाइन आवेदन जमा करने की चरणबद्ध प्रक्रिया",
+                description: "आम जनता और वसुधा केंद्र ऑपरेटरों के लिए निर्देश ताकि बिना किसी त्रुटि के जमाबंदी सुधार अनुरोध दर्ज किए जा सकें और अस्वीकृति से बचा जा सके।",
+                youtubeId: "2O1RzDM7L9Y", audience: ["Citizen", "DEO"], badge: "Mutation"
+            },
+
+            // MODULE 4: Online Mutation & FIFO Controls
+            {
+                module: "04. म्यूटेशन एवं FIFO नियम",
+                title: "4.01 राजस्व कर्मचारी लॉगिन: FIFO Framework और मल्टी-केस सॉर्टिंग",
+                description: "First-In-First-Out (FIFO) नियमों के तहत म्यूटेशन आवेदनों को क्रमबद्ध संसाधित करने और एक ही प्लॉट पर कई दावों को हल करने की मार्गदर्शिका।",
+                youtubeId: "J--j3AMU4KU", audience: ["RK", "CI"], badge: "Mutation"
+            },
+            {
+                module: "04. म्यूटेशन एवं FIFO नियम",
+                title: "4.02 FIFO प्रणाली से किसी म्यूटेशन केस को Skip या Hold करने के नियम",
+                description: "सख्त ऑडिट और वैध आपातकालीन कारणों के तहत अंचल स्तर पर FIFO स्ट्रीम से किसी केस को नियमानुसार हटाने की स्वीकृत प्रशासनिक प्रक्रिया।",
+                youtubeId: "8gt6L1c05Ew", audience: ["CO", "CI"], badge: "Mutation"
+            },
+            {
+                module: "04. म्यूटेशन एवं FIFO नियम",
+                title: "4.03 ऑनलाइन प्राप्त म्यूटेशन याचिकाओं को क्षेत्र के राजस्व कर्मचारियों को अग्रसारित (Forward) करना",
+                description: "नए ऑनलाइन आवेदनों का मूल्यांकन करने और उन्हें जांच के लिए संबंधित हल्का कर्मचारी को डिजिटल रूप से भेजने की ऑपरेटर प्रक्रिया।",
+                youtubeId: "D_HpVyRzeU8", audience: ["CO", "RO", "DEO"], badge: "Mutation"
+            },
+            {
+                module: "04. म्यूटेशन एवं FIFO नियम",
+                title: "4.04 Mutation Timelines: RTPS समय-सीमा और विलंब बिंदुओं की ट्रैकिंग",
+                description: "अंचल के लंबित मामलों के मूल्यांकन और कार्यकुशलता में सुधार के लिए प्रशासनिक डैशबोर्ड के उपयोग का प्रशिक्षण।",
+                youtubeId: "JymRf25WLns", audience: ["CO", "RO", "DCLR"], badge: "Mutation"
+            },
+            {
+                  box-shadow: var(--shadow); border: 1px solid var(--border);
         }
         .nav-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #0a2540; margin-bottom: 1rem; font-weight: 700; border-bottom: 2px solid var(--gold); padding-bottom: 4px; }
         .nav-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
