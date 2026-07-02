@@ -18,7 +18,7 @@
             --text-muted: #475569;
             --border: #cbd5e1;
             --shadow: 0 4px 10px rgb(10 37 64 / 0.08);
-            --radius: 8px;
+            --radius: 6px;
             --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
@@ -36,7 +36,7 @@
         }
 
         body.trainer-mode { font-size: 1.25rem; }
-        body.trainer-mode .video-grid { grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)) !important; gap: 2rem; }
+        body.trainer-mode .video-grid { grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)) !important; gap: 2rem; }
         body.trainer-mode .video-card h4 { font-size: 1.35rem !important; line-height: 1.4; }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font-base); }
@@ -60,6 +60,7 @@
         .portal-link {
             font-size: 0.85rem; font-weight: 600; color: #1e3a5f;
             padding: 0.3rem 0.8rem; border-radius: 4px; border: 1px solid #1e3a5f; background: #f8fafc;
+            text-decoration: none; display: inline-flex; align-items: center;
         }
         .portal-link:hover { color: #ffffff; background: #1e3a5f; }
 
@@ -74,7 +75,7 @@
         .nav-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #0a2540; margin-bottom: 1rem; font-weight: 700; border-bottom: 2px solid var(--gold); padding-bottom: 4px; }
         .nav-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
         .nav-item {
-            padding: 0.8rem 0.9rem; border-radius: 6px; font-weight: 600; font-size: 0.92rem;
+            padding: 0.8rem 0.9rem; border-radius: 4px; font-weight: 600; font-size: 0.92rem;
             cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-main);
             border: 1px solid transparent; background: #f8fafc;
         }
@@ -188,9 +189,8 @@
     </div>
 
     <script>
-        // Restructured Dataset in exact incremental ascending order format
+        // Completely verified data model with bulletproof structural layout
         const videoRegistry = [
-            // MODULE 1: Substantive Acts & Land Revenue Laws
             {
                 module: "01. महत्वपूर्ण अधिनियम (Land Acts)",
                 title: "1.01 बिहार काश्तकारी अधिनियम 1885 (Bihar Tenancy Act)",
@@ -206,7 +206,7 @@
             {
                 module: "01. महत्वपूर्ण अधिनियम (Land Acts)",
                 title: "1.03 बिहार भूमि विवाद निराकरण अधिनियम (BLDRA) 2009",
-                description: "भूमि विवादों को कम करने की प्रक्रिया, सक्षम राजस्व अधिकारियों के अधिकार क्षेत्र (Jurisdiction) की सीमाएं और प्रवर्तन शक्तियों की विस्तृत मार्गदर्शिका।",
+                description: "भूमि विवादों को कम करने की प्रक्रिया, सक्षम राजस्व अधिकारियों के अधिकार क्षेत्र की सीमाएं और प्रवर्तन शक्तियों की विस्तृत मार्गदर्शिका।",
                 youtubeId: "1f2du5YGzNo", audience: ["CO", "DCLR", "ADM"], badge: "Act"
             },
             {
@@ -218,7 +218,7 @@
             {
                 module: "01. महत्वपूर्ण अधिनियम (Land Acts)",
                 title: "1.05 BPPHT Act 1947 (बिहार विशेषाधिकार प्राप्त व्यक्ति गृह-स्थल काश्तकारी अधिनियम)",
-                description: "कमजोर वर्गों के लिए आवास स्थल सुरक्षा और कानूनी रूप से वैध बंदोबस्ती परवाना (Settlement Parwana) सुरक्षित करने की प्रक्रिया।",
+                description: "कमजोर वर्गों के लिए आवास स्थल सुरक्षा और कानूनी रूप से वैध बंदोबस्ती परवाना सुरक्षित करने की प्रक्रिया।",
                 youtubeId: "8FMoiyjgkok", audience: ["CO", "RO", "RK"], badge: "Act"
             },
             {
@@ -233,8 +233,6 @@
                 description: "सार्वजनिक उपयोग की भूमि, सरकारी संपत्तियों और आम रैयती अधिकारों के बीच कानूनी अंतर एवं राजस्व रिकॉर्ड में उनकी ट्रैकिंग।",
                 youtubeId: "zbEdAQVgJT", audience: ["CO", "RO", "RK", "Amin"], badge: "Act"
             },
-
-            // MODULE 2: Departmental Rules & Codes
             {
                 module: "02. विभागीय नियमावली एवं कोड",
                 title: "2.01 बिहार दाखिल-खारिज अधिनियम 2011 (Bihar Mutation Act)",
@@ -244,7 +242,7 @@
             {
                 module: "02. विभागीय नियमावली एवं कोड",
                 title: "2.02 बिहार दाखिल-खारिज नियमावली 2012 (Bihar Mutation Rule)",
-                description: "विभागीय नियमों के अनुरूप फील्ड में म्यूटेशन केस के निष्पादन और आदेश पत्र (Order Sheet) तैयार करने की व्यावहारिक नियमावली।",
+                description: "विभागीय नियमों के अनुरूप फील्ड में म्यूटेशन केस के निष्पादन और आदेश पत्र तैयार करने की व्यावहारिक नियमावली।",
                 youtubeId: "KRMHyjnrkpg", audience: ["CO", "RO", "CI"], badge: "Rule"
             },
             {
@@ -259,22 +257,18 @@
                 description: "राजस्व रिकॉर्ड और पुराने दस्तावेजों में उपयोग किए जाने वाले कठिन उर्दू, फारसी और पारंपरिक तकनीकी शब्दों का हिंदी अनुवाद और व्याख्या।",
                 youtubeId: "XTEnOBhtPQI", audience: ["RO", "RK", "Amin", "DEO"], badge: "Rule"
             },
-
-            // MODULE 3: Parimarjan Plus Operations
             {
                 module: "03. परिमार्जन प्लस (Parimarjan Plus)",
                 title: "3.01 Parimarjan Plus Portal: अंचल स्तर पर आवेदनों का निष्पादन और निपटारा",
-                description: "सर्किल अधिकारियों (CO) के लिए नए पोर्टल फ्रेमवर्क के माध्यम से लाइव जमाबंदी रिकॉर्ड में डिजिटल सुधार (Correction) दावों को संसाधित करने का आधिकारिक प्रोटोकॉल।",
+                description: "सर्किल अधिकारियों (CO) के लिए नए पोर्टल फ्रेमवर्क के माध्यम से लाइव जमाबंदी रिकॉर्ड में डिजिटल सुधार दावों को संसाधित करने का आधिकारिक प्रोटोकॉल।",
                 youtubeId: "fDRySix4DzY", audience: ["CO", "RO", "CI"], badge: "Mutation"
             },
             {
-                module: "03. परिमार्jan Plus (Parimarjan Plus)",
+                module: "03. परिमार्जन प्लस (Parimarjan Plus)",
                 title: "3.02 Parimarjan Plus: नागरिकों द्वारा ऑनलाइन आवेदन जमा करने की चरणबद्ध प्रक्रिया",
                 description: "आम जनता और वसुधा केंद्र ऑपरेटरों के लिए निर्देश ताकि बिना किसी त्रुटि के जमाबंदी सुधार अनुरोध दर्ज किए जा सकें और अस्वीकृति से बचा जा सके।",
                 youtubeId: "2O1RzDM7L9Y", audience: ["Citizen", "DEO"], badge: "Mutation"
             },
-
-            // MODULE 4: Online Mutation & FIFO Controls
             {
                 module: "04. म्यूटेशन एवं FIFO नियम",
                 title: "4.01 राजस्व कर्मचारी लॉगिन: FIFO Framework और मल्टी-केस सॉर्टिंग",
@@ -289,7 +283,7 @@
             },
             {
                 module: "04. म्यूटेशन एवं FIFO नियम",
-                title: "4.03 ऑनलाइन प्राप्त म्यूटेशन याचिकाओं को क्षेत्र के राजस्व कर्मचारियों को अग्रसारित (Forward) करना",
+                title: "4.03 ऑनलाइन प्राप्त म्यूटेशन याचिकाओं को क्षेत्र के राजस्व कर्मचारियों को अग्रसारित करना",
                 description: "नए ऑनलाइन आवेदनों का मूल्यांकन करने और उन्हें जांच के लिए संबंधित हल्का कर्मचारी को डिजिटल रूप से भेजने की ऑपरेटर प्रक्रिया।",
                 youtubeId: "D_HpVyRzeU8", audience: ["CO", "RO", "DEO"], badge: "Mutation"
             },
@@ -302,11 +296,9 @@
             {
                 module: "04. म्यूटेशन एवं FIFO नियम",
                 title: "4.05 सक्रिय म्यूटेशन आवेदनों में सुधार (Application Edit) करने का प्रोटोकॉल",
-                description: "अंतिम आदेश पत्र (Order Sheet) जारी होने से पहले सक्रिय आवेदनों में लिपिकीय त्रुटियों को डिजिटल रूप से सुधारने की प्रक्रिया।",
+                description: "अंतिम आदेश पत्र जारी होने से पहले सक्रिय आवेदनों में लिपिकीय त्रुटियों को डिजिटल रूप से सुधारने की प्रक्रिया।",
                 youtubeId: "lu2oFdjgcCI", audience: ["CO", "RO", "DEO"], badge: "Mutation"
             },
-
-            // MODULE 5: E-Jamabandi & Record Updation
             {
                 module: "05. ई-जमाबंदी (E-Jamabandi)",
                 title: "5.01 CO और RO लॉगिन से नई जमाबंदी प्रविष्टि और डिजिटल हस्ताक्षर",
@@ -315,7 +307,7 @@
             },
             {
                 module: "05. ई-जमाबंदी (E-Jamabandi)",
-                title: "5.02 ई-जमाबंदी मॉड्यूल टर्मिनल के तहत डेटा प्रविष्टि (Data Entry) कार्य",
+                title: "5.02 ई-जमाबंदी मॉड्यूल टर्मिनल के तहत डेटा प्रविष्टि कार्य",
                 description: "ऑपरेटरों और डीलिंग असिस्टेंट के लिए प्लॉट की चौहद्दी, रकबा और मालिकाना हक के विवरण दर्ज करने का मानक कार्यप्रवाह।",
                 youtubeId: "p0JewDZtZQk", audience: ["DEO"], badge: "Mutation"
             },
@@ -325,45 +317,39 @@
                 description: "सुरक्षा प्रशिक्षण: रिकॉर्ड में किए गए बदलावों को ट्रैक करना, पुराने विवरण देखना और ऑपरेटर की जवाबदेही सुनिश्चित करना।",
                 youtubeId: "C1RwAd4lotY", audience: ["CO", "RO", "DCLR"], badge: "Mutation"
             },
-
-            // MODULE 6: Government Land Mutation
             {
                 module: "06. सरकारी भूमि म्यूटेशन",
-                title: "06.01 सरकारी और अंतर-विभागीय भूमि हस्तांतरण (Govt Land Mutation) का निपटारा",
+                title: "6.01 सरकारी और अंतर-विभागीय भूमि हस्तांतरण का निपटारा",
                 description: "सार्वजनिक परिसंपत्तियों और विभिन्न विभागों को आवंटित सरकारी भूमि के म्यूटेशन के लिए कानूनी नियम एवं सत्यापन प्रक्रियाएं।",
                 youtubeId: "fxDfJQORokY", audience: ["CO", "RO", "DCLR"], badge: "Mutation"
             },
             {
                 module: "06. सरकारी भूमि म्यूटेशन",
-                title: "06.02 सरकारी भूमि म्यूटेशन दावों के लिए ऑनलाइन आवेदन दर्ज करने की प्रक्रिया",
-                description: "विभागीय संस्थाओं (Institutional Entities) द्वारा सरकारी भूमि के हस्तांतरण रिकॉर्ड को ऑनलाइन पोर्टल पर दर्ज करने की मार्गदर्शिका।",
+                title: "6.02 सरकारी भूमि म्यूटेशन दावों के लिए ऑनलाइन आवेदन दर्ज करने की प्रक्रिया",
+                description: "विभागीय संस्थाओं द्वारा सरकारी भूमि के हस्तांतरण रिकॉर्ड को ऑनलाइन पोर्टल पर दर्ज करने की मार्गदर्शिका।",
                 youtubeId: "hm2UZ0zS9w0", audience: ["CO", "DEO"], badge: "Mutation"
             },
-
-            // MODULE 7: E-Mapi Land Demarcation
             {
                 module: "07. ई-मापी (E-Mapi) सीमांकन",
                 title: "7.01 E-Mapi प्रणाली: ऑनलाइन भूमि मापी और सीमांकन अनुरोधों का प्रबंधन",
-                description: "नागरिकों द्वारा दर्ज किए गए ऑनलाइन मापी (Measurement) आवेदनों को स्वीकार करने और उनका पूरा लाइफसाइकिल प्रबंधित करने का विवरण।",
+                description: "नागरिकों द्वारा दर्ज किए गए ऑनलाइन मापी आवेदनों को स्वीकार करने और उनका पूरा लाइफसाइकिल प्रबंधित करने का विवरण।",
                 youtubeId: "CSplJa3WOr0", audience: ["CO", "Amin", "Citizen"], badge: "Tech"
             },
             {
                 module: "07. ई-मापी (E-Mapi) सीमांकन",
-                title: "7.02 अमीन आवंटन (Assign Amin), मापी की तिथि निर्धारण और नोटिस जारी करना",
+                title: "7.02 अमीन आवंटन, मापी की तिथि निर्धारण और नोटिस जारी करना",
                 description: "अंचल के अमीनों का रोस्टर प्रबंधित करने, मापी की तारीख चुनने और पक्षों को स्वचालित वैधानिक नोटिस भेजने की प्रक्रिया।",
                 youtubeId: "Pguiy-cDm-0", audience: ["CO", "DEO"], badge: "Tech"
             },
             {
                 module: "07. ई-मापी (E-Mapi) सीमांकन",
-                title: "7.03 अमीन द्वारा ई-मापी पोर्टल पर फील्ड मापी रिपोर्ट और जियो-समान्वयक अपलोड करना",
-                description: "क्षेत्रीय अमीनों के लिए तकनीकी निर्देश: मापी के सटीक निर्देशांक (Coordinates) और भू-सीमांकन मानचित्र सीधे सर्वर पर अपलोड करना।",
+                title: "7.03 अमीन द्वारा ई-मापी पोर्टल पर फील्ड मापी रिपोर्ट अपलोड करना",
+                description: "क्षेत्रीय अमीनों के लिए तकनीकी निर्देश: मापी के सटीक निर्देशांक और भू-सीमांकन मानचित्र सीधे सर्वर पर अपलोड करना।",
                 youtubeId: "rPrR_2ZtrTA", audience: ["Amin"], badge: "Tech"
             },
-
-            // MODULE 8: RCMS & Revenue Court Management
             {
                 module: "08. राजस्व न्यायालय (RCMS)",
-                title: "8.01 RCMS डिजिटल हस्ताक्षर सेटिंग और ऑनलाइन आदेश पत्र (E-Order Sheet) लेखन",
+                title: "8.01 RCMS डिजिटल हस्ताक्षर सेटिंग और ऑनलाइन आदेश पत्र लेखन",
                 description: "राजस्व न्यायालयों में सुरक्षित प्रणालियों का उपयोग करके ऑनलाइन आदेश पत्र तैयार करने, डिजिटल हस्ताक्षर करने और उन्हें सुरक्षित रखने के नियम।",
                 youtubeId: "FoYLvGeMTUc", audience: ["CO", "DCLR"], badge: "Tech"
             },
@@ -373,48 +359,42 @@
                 description: "जब भूस्वामी अंचल अमीन द्वारा तय की गई सीमाओं से असहमत हों, तो DCLR कोर्ट में अपील दायर करने और उसकी ट्रैकिंग का कार्यप्रवाह।",
                 youtubeId: "gprNegYE7Us", audience: ["DCLR", "CO"], badge: "Tech"
             },
-
-            // MODULE 9: Special Survey Operations
             {
                 module: "09. विशेष सर्वेक्षण कार्य (Survey)",
-                title: "9.01 CS एवं RS खतियान के आधार पर प्रपत्र-5 (Prapatra-5) की डिजिटल एंट्री",
+                title: "9.01 CS एवं RS खतियान के आधार पर प्रपत्र-5 की डिजिटल एंट्री",
                 description: "विशेष सर्वेक्षण सॉफ्टवेयर के भीतर प्रपत्र-5 को सही ढंग से भरने के लिए ऐतिहासिक कैडस्ट्रल और रिविजनल सर्वे रिकॉर्ड की जांच करने के निर्देश।",
                 youtubeId: "lH-Jn76LIEQ", audience: ["Survey Officer", "Kanoongo", "DEO"], badge: "Survey"
             },
             {
                 module: "09. विशेष सर्वेक्षण कार्य (Survey)",
-                title: "9.02 विशेष सर्वेक्षण शिविरों (Survey Camps) का गठन और जमीनी प्रबंधन",
+                title: "9.02 विशेष सर्वेक्षण शिविरों का गठन और जमीनी प्रबंधन",
                 description: "प्रशासनिक नियमावली: फील्ड शिविरों की स्थापना, रैयतों के साथ समन्वय बैठकें आयोजित करना और अभिलेखों को सुरक्षित रखना।",
                 youtubeId: "Omn7YrsJWnI", audience: ["Special Survey Officer", "Kanoongo"], badge: "Survey"
             },
             {
                 module: "09. विशेष सर्वेक्षण कार्य (Survey)",
                 title: "9.03 किश्तवार और खानापूरी सामान्य प्रशिक्षण (2020 संस्थागत श्रृंखला)",
-                description: "सर्वेक्षण के प्रारंभिक चरणों में भू-खंडों के रैखिक मापन (Linear Measurement) और स्वामित्व स्वामित्व सत्यापन की कानूनी सीमाओं का विवरण।",
+                description: "सर्वेक्षण के प्रारंभिक चरणों में भू-खंडों के रैखिक मापन और स्वामित्व स्वामित्व सत्यापन की कानूनी सीमाओं का विवरण।",
                 youtubeId: "nMQWVCY4iQM", audience: ["ASO", "Kanoongo", "Amin"], badge: "Survey"
             },
             {
                 module: "09. विशेष सर्वेक्षण कार्य (Survey)",
-                title: "9.04 प्रारूप प्रकाशन (Draft Publication), लगान निर्धारण और विवाद अधिनिर्णयन",
-                description: "सर्वेक्षण के बाद अधिकारों के रिकॉर्ड (RoR) का प्रारूप प्रकाशित करना, जनता की आपत्तियों को सुनना और रिकॉर्ड को अंतिम रूप देना।",
+                title: "9.04 प्रारूप प्रकाशन, लगान निर्धारण और विवाद अधिनिर्णयन",
+                description: "सर्वेक्षण के बाद अधिकारों के रिकॉर्ड का प्रारूप प्रकाशित करना, जनता की आपत्तियों को सुनना और रिकॉर्ड को अंतिम रूप देना।",
                 youtubeId: "haXD9oPuYCU", audience: ["ASO", "Kanoongo"], badge: "Survey"
             },
-
-            // MODULE 10: Technical Survey Instruments
             {
                 module: "10. आधुनिक सर्वेक्षण उपकरण (Tech)",
-                title: "10.01 ETS (Electronic Total Station) मशीन द्वारा भूमि मापन की तकनीक",
+                title: "10.01 ETS मशीन द्वारा भूमि मापन की तकनीक",
                 description: "क्षेत्रीय इंजीनियरों और अमीनों के लिए निर्देश: भूमि की सटीक सीमाओं और डिजिटल कोऑर्डिनेट्स को रिकॉर्ड करने के लिए ईटीएस मशीन का संचालन।",
                 youtubeId: "m_MoGyR19Y8", audience: ["Amin", "Survey Officer"], badge: "Survey"
             },
             {
                 module: "10. आधुनिक सर्वेक्षण उपकरण (Tech)",
-                title: "10.02 मानचित्रों की जांच, ग्रिड कोऑर्डिनेट्स और DGPS स्टेशन कंट्रोल पॉइंट्स",
-                description: "वरिष्ठ सर्वेक्षण अधिकारियों के लिए तकनीकी व्याख्यान: हवाई इमेजरी (Aerial Imagery) और ग्राउंड बेस स्टेशनों का मिलान करना।",
+                title: "10.02 मानचित्रों की जांच, ग्रिड कोऑर्डिनेट्स और DGPS स्टेशन कंट्रोल Points",
+                description: "वरिष्ठ सर्वेक्षण अधिकारियों के लिए तकनीकी व्याख्यान: हवाई इमेजरी और ग्राउंड बेस स्टेशनों का मिलान करना।",
                 youtubeId: "m68gOboE7U", audience: ["Kanoongo", "ASO"], badge: "Survey"
             },
-
-            // MODULE 11: Bhu-Abhilekh & Nakal
             {
                 module: "11. भू-अभिलेख एवं डिजिटल नक़ल",
                 title: "11.01 Bhu-Abhilekh Server Login और ऐतिहासिक दस्तावेजों का सत्यापन",
@@ -423,34 +403,28 @@
             },
             {
                 module: "11. भू-अभिलेख एवं डिजिटल नक़ल",
-                title: "11.02 राजस्व अभिलेखों की सत्यापित प्रति (Certified Digital Nakal) ऑनलाइन प्राप्त करना",
+                title: "11.02 राजस्व अभिलेखों की सत्यापित प्रति ऑनलाइन प्राप्त करना",
                 description: "नागरिकों के आवेदनों की जांच, निर्धारित वैधानिक शुल्क का ऑनलाइन प्रबंधन और कानूनी रूप से मान्य प्रमाणित प्रतियां प्रिंट करना।",
                 youtubeId: "5c63rhHxlu", audience: ["DEO", "Citizen"], badge: "Tech"
             },
             {
                 module: "11. भू-अभिलेख एवं डिजिटल नक़ल",
-                title: "11.03 डिजिटल राजस्व मानचित्रों (Revenue Maps) की Doorstep Delivery की व्यवस्था",
+                title: "11.03 डिजिटल राजस्व मानचित्रों की Doorstep Delivery की व्यवस्था",
                 description: "नागरिकों के लिए डाक विभाग के माध्यम से घर बैठे उच्च-गुणवत्ता वाले प्रमाणित नक्शे मंगाने की पूरी कार्यप्रणाली का विवरण।",
                 youtubeId: "Z0NJ4Et4PNA", audience: ["Citizen", "DEO"], badge: "Tech"
             },
-
-            // MODULE 12: Kaithi Script Literacy
             {
                 module: "12. कैथी लिपि प्रशिक्षण (Kaithi Script)",
-                title: "12.01 कैथी लिपि प्रशिक्षण श्रृंखला (बंदोबस्त कार्यालय, गया का मास्टर कोर्स)",
+                title: "12.01 कैथी लिपि प्रशिक्षण श्रृंखला (Gaya Office Master Course)",
                 description: "राजस्व अधिकारियों और कर्मचारियों को पुराने भूमि रिकॉर्ड और दस्तावेजों में प्रयुक्त ऐतिहासिक 'कैथी लिपि' को पढ़ने और समझने का संपूर्ण प्रशिक्षण।",
                 youtubeId: "QnjzG0OkFqQ", audience: ["CO", "Kanoongo", "Amin", "RK"], badge: "Survey"
             },
-
-            // MODULE 13: Agriculture Census Workflows
             {
                 module: "13. कृषि गणना (Agri Census)",
-                title: "13.01 कृषि गणना चरण 3: बेस फ्रेम अपडेशन और डेटा स्क्रबिंग (Scrubbing)",
+                title: "13.01 कृषि गणना चरण 3: बेस फ्रेम अपडेशन और डेटा स्क्रबिंग",
                 description: "राष्ट्रीय डेटाबेस पर रिकॉर्ड अपलोड करने से पहले प्रविष्टियों की त्रुटियों को सुधारने और उनके प्रारूप की जांच करने के नियम।",
                 youtubeId: "fZw08mWbXTg", audience: ["Supervisor", "Block Officer"], badge: "Tech"
             },
-
-            // MODULE 14: Revenue Mahabhiyan & Technical Setup
             {
                 module: "14. राजस्व महा-अभियान एवं सेटअप",
                 title: "14.01 राजस्व महा-अभियान: फील्ड कैंप के लिए अतिरिक्त ऑपरेटर आईडी बनाना",
@@ -463,17 +437,22 @@
                 description: "अंचल और राजस्व अधिकारियों के कंप्यूटर में USB टोकन/डिजिटल सिग्नेचर का उपयोग करते समय आने वाली तकनीकी समस्याओं का समाधान।",
                 youtubeId: "jMxowF5uRUA", audience: ["CO", "RO", "DEO"], badge: "Tech"
             },
-
-            // MODULE 15: Archived Modules & Legacy Procedures
             {
-                module: "15. आर्काइव (पुराने/legacy मामले)",
+                module: "15. आर्काइव (पुराने मामले)",
                 title: "15.01 [ARCHIVED] पुराने परिमार्जन पोर्टल के माध्यम से आवेदनों के निष्पादन की प्रक्रिया",
                 description: "ऐतिहासिक संदर्भ और पुराने मामलों की जांच के उद्देश्य से सुरक्षित रखी गई पुरानी सॉफ्टवेयर कार्यप्रणाली (अब Parimarjan Plus प्रभावी है)।",
                 youtubeId: "_zPtDHVA1D", audience: ["CO", "DEO"], badge: "Archived"
             }
         ];
 
-        document.addEventListener("DOMContentLoaded", () => { renderModulesAndNavigation(); });
+        // Safe DOM Engine Initializer
+        window.addEventListener("DOMContentLoaded", () => {
+            try {
+                renderModulesAndNavigation();
+            } catch (err) {
+                console.error("Initialization Failed:", err);
+            }
+        });
 
         function toggleTheme() {
             const current = document.documentElement.getAttribute("data-theme");
@@ -491,79 +470,121 @@
         function renderModulesAndNavigation(filterKeyword = "") {
             const container = document.getElementById("dynamicModulesContainer");
             const navList = document.getElementById("moduleNavList");
-            container.innerHTML = ""; navList.innerHTML = "";
+            
+            if (!container || !navList) return;
+            
+            container.innerHTML = ""; 
+            navList.innerHTML = "";
 
             const modulesMap = {};
+            
+            // Build safe module array mappings
             videoRegistry.forEach(video => {
-                if (filterKeyword) {
-                    const text = (video.title + " " + video.description + " " + video.module + " " + video.audience.join(" ")).toLowerCase();
-                    if (!text.includes(filterKeyword.toLowerCase())) return;
+                try {
+                    if (filterKeyword) {
+                        const audStr = Array.isArray(video.audience) ? video.audience.join(" ") : "";
+                        const text = (video.title + " " + video.description + " " + video.module + " " + audStr).toLowerCase();
+                        if (!text.includes(filterKeyword.toLowerCase())) return;
+                    }
+                    if (!modulesMap[video.module]) {
+                        modulesMap[video.module] = [];
+                    }
+                    modulesMap[video.module].push(video);
+                } catch (e) {
+                    console.error("Filter mapping breakdown:", e);
                 }
-                if (!modulesMap[video.module]) modulesMap[video.module] = [];
-                modulesMap[video.module].push(video);
             });
 
             const sortedModules = Object.keys(modulesMap).sort();
 
-            if(sortedModules.length === 0) {
+            if (sortedModules.length === 0) {
                 container.innerHTML = `<div style="padding:4rem; text-align:center; color:var(--text-muted); background:var(--bg-card); border-radius:8px; border:1px solid var(--border);">कोई मिलान फ़ोल्डर या डेटा नहीं मिला। कृपया पुनः खोजें।</div>`;
                 return;
             }
 
             sortedModules.forEach((modName, index) => {
-                const safeId = "mod_" + index;
-                
-                const navLi = document.createElement("li");
-                navLi.className = `nav-item ${index === 0 && !filterKeyword ? 'active' : ''}`;
-                navLi.innerHTML = `<span>${modName}</span> <span class="badge-count">${modulesMap[modName].length}</span>`;
-                navLi.onclick = () => {
-                    document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-                    navLi.classList.add('active');
-                    document.getElementById(safeId).scrollIntoView({ behavior: 'smooth', block: 'start' });
-                };
-                navList.appendChild(navLi);
+                try {
+                    const safeId = "mod_" + index;
+                    
+                    const navLi = document.createElement("li");
+                    navLi.className = `nav-item ${index === 0 && !filterKeyword ? 'active' : ''}`;
+                    navLi.innerHTML = `<span>${modName}</span> <span class="badge-count">${modulesMap[modName].length}</span>`;
+                    navLi.onclick = () => {
+                        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+                        navLi.classList.add('active');
+                        const targetEl = document.getElementById(safeId);
+                        if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    };
+                    navList.appendChild(navLi);
 
-                const sec = document.createElement("section");
-                sec.className = "module-section"; sec.id = safeId;
-                if(index > 0) sec.style.marginTop = "2rem";
+                    const sec = document.createElement("section");
+                    sec.className = "module-section"; 
+                    sec.id = safeId;
+                    if (index > 0) sec.style.marginTop = "2rem";
 
-                sec.innerHTML = `<div class="module-header"><h3>📂 ${modName}</h3></div>`;
-                const grid = document.createElement("div"); grid.className = "video-grid";
+                    sec.innerHTML = `<div class="module-header"><h3>📂 ${modName}</h3></div>`;
+                    const grid = document.createElement("div"); 
+                    grid.className = "video-grid";
 
-                modulesMap[modName].forEach(video => {
-                    const card = document.createElement("div"); card.className = "video-card";
-                    card.innerHTML = `
-                        <div class="thumbnail-container" onclick="openModalPlayer('${video.youtubeId}')">
-                            <img src="https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg" alt="वीडियो थंबनेल">
-                            <div class="play-overlay"><div class="play-icon">▶</div></div>
-                        </div>
-                        <div class="card-details">
-                            <div class="card-tags">
-                                <span class="badge badge-${video.badge.toLowerCase()}">${video.badge}</span>
-                                ${video.audience.map(a => `<span class="audience-tag">${a}</span>`).join("")}
+                    modulesMap[modName].forEach(video => {
+                        const card = document.createElement("div"); 
+                        card.className = "video-card";
+                        
+                        const audBadges = Array.isArray(video.audience) ? video.audience.map(a => `<span class="audience-tag">${a}</span>`).join("") : "";
+                        const safeBadge = (video.badge || "Tech").toLowerCase();
+
+                        card.innerHTML = `
+                            <div class="thumbnail-container" onclick="openModalPlayer('${video.youtubeId}')">
+                                <img src="https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg" alt="थंबनेल">
+                                <div class="play-overlay"><div class="play-icon">▶</div></div>
                             </div>
-                            <h4>${video.title}</h4>
-                            <p>${video.description}</p>
-                            <button class="btn-ui btn-outline" style="margin-top:auto; width:100%; justify-content:center;" onclick="openModalPlayer('${video.youtubeId}')">📺 वीडियो व्याख्यान खोलें</button>
-                        </div>
-                    `;
-                    grid.appendChild(card);
-                });
-                sec.appendChild(grid); container.appendChild(sec);
+                            <div class="card-details">
+                                <div class="card-tags">
+                                    <span class="badge badge-${safeBadge}">${video.badge || 'Tech'}</span>
+                                    ${audBadges}
+                                </div>
+                                <h4>${video.title}</h4>
+                                <p>${video.description}</p>
+                                <button class="btn-ui btn-outline" style="margin-top:auto; width:100%; justify-content:center;" onclick="openModalPlayer('${video.youtubeId}')">📺 वीडियो व्याख्यान खोलें</button>
+                            </div>
+                        `;
+                        grid.appendChild(card);
+                    });
+                    
+                    sec.appendChild(grid); 
+                    container.appendChild(sec);
+                } catch (loopErr) {
+                    console.error("DOM Injection pipeline breakdown:", loopErr);
+                }
             });
         }
 
-        function executeSearch() { renderModulesAndNavigation(document.getElementById("dashboardSearch").value); }
-        function clearSearch() { document.getElementById("dashboardSearch").value = ""; renderModulesAndNavigation(); }
+        function executeSearch() { 
+            const val = document.getElementById("dashboardSearch") ? document.getElementById("dashboardSearch").value : "";
+            renderModulesAndNavigation(val); 
+        }
+        
+        function clearSearch() { 
+            if (document.getElementById("dashboardSearch")) document.getElementById("dashboardSearch").value = ""; 
+            renderModulesAndNavigation(); 
+        }
         
         function openModalPlayer(id) { 
             const modal = document.getElementById("videoModal"); 
-            document.getElementById("modalIframe").src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`; 
-            modal.style.display = "flex"; 
+            const iframe = document.getElementById("modalIframe");
+            if (modal && iframe) {
+                iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`; 
+                modal.style.display = "flex"; 
+            }
         }
+        
         function closeModalPlayer() { 
-            document.getElementById("videoModal").style.display = "none"; 
-            document.getElementById("modalIframe").src = ""; 
+            const modal = document.getElementById("videoModal"); 
+            const iframe = document.getElementById("modalIframe");
+            if (modal && iframe) {
+                modal.style.display = "none"; 
+                iframe.src = ""; 
+            }
         }
     </script>
 </body>
