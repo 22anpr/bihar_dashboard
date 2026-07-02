@@ -66,8 +66,9 @@
 
         .main-container { display: flex; max-width: 1920px; margin: 0 auto; padding: 2rem; gap: 2rem; }
         
+        /* Optimized sidebar width for Google Sites Container */
         aside {
-            width: 360px; flex-shrink: 0; position: sticky; top: 160px;
+            width: 280px; flex-shrink: 0; position: sticky; top: 160px;
             height: calc(100vh - 200px); overflow-y: auto;
             background: var(--bg-card); border-radius: var(--radius); padding: 1.25rem;
             box-shadow: var(--shadow); border: 1px solid var(--border);
@@ -136,7 +137,11 @@
         .modal-frame { background: #000000; width: 100%; max-width: 1100px; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; position: relative; border: 3px solid var(--gold); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
         .modal-close { position: absolute; top: -45px; right: 0; color: white; font-size: 1.4rem; font-weight: 700; background: transparent; border: none; cursor: pointer; }
 
-        @media(max-width: 1150px) { .main-container { flex-direction: column; } aside { width: 100%; height: auto; position: static; } }
+        /* FIXED RESPONSIVE BREAKPOINT FOR GOOGLE SITES CONTAINERS */
+        @media(max-width: 768px) { 
+            .main-container { flex-direction: column; } 
+            aside { width: 100%; height: auto; position: static; } 
+        }
     </style>
 </head>
 <body>
@@ -189,7 +194,6 @@
     </div>
 
     <script>
-        // Completely harmonized code repository matching identical module arrays
         const videoRegistry = [
             // MODULE 1: Substantive Acts & Land Revenue Laws
             {
@@ -212,7 +216,7 @@
             },
             {
                 module: "01. महत्वपूर्ण अधिनियम (Land Acts)",
-                title: "1.04 बिहार भूमि ट्रिब्यूनल अधिनियम (Bihar Land Tribunal Act) 2009",
+                title: "1.04 बिहार भूमि挂 ट्रिब्यूनल अधिनियम (Bihar Land Tribunal Act) 2009",
                 description: "सक्षम प्राधिकारी के क्षेत्राधिकार का विश्लेषण, अंचल कार्यालय के आदेशों के विरुद्ध कानूनी अपील दायर करने और अपीलीय प्रतिनिधित्व के नियम।",
                 youtubeId: "mhcquqbtiQU", audience: ["DCLR", "ADM", "CO"], badge: "Act"
             },
@@ -356,7 +360,7 @@
             },
             {
                 module: "07. ई-मापी (E-Mapi) सीमांकन",
-                title: "7.03 अमीन द्वारा ई-मापी पोर्टल पर फील्ड मापी रिपोर्ट अपलोड करना",
+                title: "7.03 अमीन द्वारा ई-मापी पोर्टल पर field मापी रिपोर्ट अपलोड करना",
                 description: "क्षेत्रीय अमीनों के लिए तकनीकी निर्देश: मापी के सटीक निर्देशांक और भू-सीमांकन मानचित्र सीधे सर्वर पर अपलोड करना।",
                 youtubeId: "rPrR_2ZtrTA", audience: ["Amin"], badge: "Tech"
             },
@@ -410,7 +414,7 @@
             },
             {
                 module: "10. आधुनिक सर्वेक्षण उपकरण (Tech)",
-                title: "10.02 मानचित्रों की जांच, ग्रिड कोऑर्डिनेट्सและ DGPS स्टेशन कंट्रोल Points",
+                title: "10.02 मानचित्रों की जांच, ग्रिड कोऑर्डिनेट्स और DGPS स्टेशन कंट्रोल Points",
                 description: "वरिष्ठ सर्वेक्षण अधिकारियों के लिए तकनीकी व्याख्यान: हवाई इमेजरी और ग्राउंड बेस स्टेशनों का मिलान करना।",
                 youtubeId: "m68gOboE7U", audience: ["Kanoongo", "ASO"], badge: "Survey"
             },
@@ -451,35 +455,35 @@
                 youtubeId: "fZw08mWbXTg", audience: ["Supervisor", "Block Officer"], badge: "Tech"
             },
 
-            // MODULE 14: Unification of All 5 Campaign Videos (FIXED COMPATIBILITY)
+            // MODULE 14: Rajaswa Mahabhiyan Unified Folder
             {
                 module: "14. राजस्व महा-अभियान (Mahabhiyan)",
                 title: "14.01 राजस्व महा-अभियान: शिविर के लिए अतिरिक्त ऑपरेटर लॉगिन बनाना",
-                description: "विभागीय शिविरों के सुचारू संचालन के लिए अस्थायी कैंप ऑपरेटरों को सुरक्षित लॉगिन क्रेडेंशियल आवंटित करने की अंचल प्रक्रिया[cite: 3]।",
+                description: "विभागीय शिविरों के सुचारू संचालन के लिए अस्थायी कैंप ऑपरेटरों को सुरक्षित लॉगिन क्रेडेंशियल आवंटित करने की अंचल प्रक्रिया।",
                 youtubeId: "7qQDg4E0Vyw", audience: ["CO", "DEO"], badge: "Tech"
             },
             {
                 module: "14. राजस्व महा-अभियान (Mahabhiyan)",
                 title: "14.02 राजस्व महा-अभियान: शिविरों में आवेदन प्राप्त करने की आधिकारिक कार्यप्रणाली",
-                description: "अभियान के दौरान विशेष शिविर नोड्स पर रैयतों से सीधे भौतिक एवं डिजिटल आवेदन स्वीकार करने की प्रक्रिया[cite: 3]।",
+                description: "अभियान के दौरान विशेष शिविर नोड्स पर रैयतों से सीधे भौतिक एवं डिजिटल आवेदन स्वीकार करने की प्रक्रिया।",
                 youtubeId: "H03gWwNVTac", audience: ["RK", "CI", "DEO"], badge: "Mutation"
             },
             {
                 module: "14. राजस्व महा-अभियान (Mahabhiyan)",
                 title: "14.03 राजस्व महा-अभियान: विभाग के मुख्य दिशा-निर्देश एवं व्यापक उद्देश्य",
-                description: "राजस्व मामलों के त्वरित निष्पादन के लिए चलाए जा रहे इस राज्यव्यापी अभियान की नियमावली एवं कोर फ्रेमवर्क[cite: 3]।",
+                description: "राजस्व मामलों के त्वरित निष्पादन के लिए चलाए जा रहे इस राज्यव्यापी अभियान की नियमावली एवं कोर फ्रेमवर्क।",
                 youtubeId: "CRG2s86Gp1w", audience: ["All Officials", "CO", "RO"], badge: "Act"
             },
             {
                 module: "14. राजस्व महा-अभियान (Mahabhiyan)",
                 title: "14.04 राजस्व महा-अभियान: दैनिक जमाबंदी वितरण रिपोर्ट अपलोड करना",
-                description: "शिविरों में वितरित की गई अद्यतन जमाबंदियों की प्रगति रिपोर्ट को दैनिक आधार पर केंद्रीय सर्वर पर सिंक करने का मैनुअल[cite: 3]।",
+                description: "शिविरों में वितरित की गई अद्यतन जमाबंदियों की प्रगति रिपोर्ट को दैनिक आधार पर केंद्रीय सर्वर पर सिंक करने का मैनुअल।",
                 youtubeId: "umzWIb0Cwwo", audience: ["DEO", "RO"], badge: "Tech"
             },
             {
                 module: "14. राजस्व महा-अभियान (Mahabhiyan)",
                 title: "14.05 राजस्व महा-अभियान: माइक्रो प्लान (Micro Plan) ऑनलाइन अपलोड करने की विधि",
-                description: "अंचलवार एवं हल्कावार विशेष शिविरों की तिथियों और कार्ययोजना से संबंधित माइक्रो प्लान डेटा प्रविष्टि गाइड[cite: 3]।",
+                description: "अंचलवार एवं हल्कावार विशेष शिविरों की तिथियों और कार्ययोजना से संबंधित माइक्रो प्लान डेटा प्रविष्टि गाइड।",
                 youtubeId: "iXgyFWRt1Z4", audience: ["CO", "DEO"], badge: "Tech"
             },
 
@@ -495,12 +499,11 @@
             {
                 module: "16. आर्काइव (पुराने मामले)",
                 title: "16.01 [ARCHIVED] पुराने परिमार्जन पोर्टल के माध्यम से आवेदनों के निष्पादन की प्रक्रिया",
-                description: "ऐतिहासिक संदर्भ और पुराने मामलों की जांच के उद्देश्य से सुरक्षित रखी गई पुरानी सॉफ्टवेयर कार्यप्रणाली (अब Parimarjan Plus प्रभावी है)।",
+                description: "ऐतिहासिक संदर्भ और पुराने मामलों की जांच के उद्देश्य से सुरक्षित रखी गई पुरानी软件 कार्यप्रणाली (अब Parimarjan Plus प्रभावी है)।",
                 youtubeId: "_zPtDHVA1D", audience: ["CO", "DEO"], badge: "Archived"
             }
         ];
 
-        // Safe DOM Render Engine with Layered Protection
         window.addEventListener("DOMContentLoaded", () => {
             try {
                 renderModulesAndNavigation();
